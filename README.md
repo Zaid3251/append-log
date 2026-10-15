@@ -50,3 +50,10 @@ There is one consequence worth stating plainly: a record that was reported as ap
 ```
 
 `length` is the byte length of `payload`, written big-endian. The format is deliberately not text: a length prefix lets a payload contain any byte (NUL, newline) without escaping, and the framing is auditable under `xxd`.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
