@@ -1,6 +1,6 @@
 {
   "name": "append-log",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A crash-safe, append-only record log.",
   "type": "module",
   "main": "src/index.js",
